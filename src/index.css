@@ -167,3 +167,25 @@ body{
   scrollbar-width: thin;
   scrollbar-color: var(--accent) transparent;
 }
+
+@media (max-width: 768px) {
+  .notesForm{
+  flex-direction: column;
+  gap: 15px;
+  align-items: baseline;
+}
+
+.notesForm .title{
+  width: 100%;
+}
+
+.notesForm .description{
+  width: 100%;
+}
+
+.notesForm .addNote{
+  width: 100%;
+}
+
+}
+

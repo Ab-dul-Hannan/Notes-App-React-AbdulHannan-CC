@@ -1,21 +1,34 @@
-.header{
-    height: 40px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.header {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.title{
-    font-size: 22px;
+.title {
+  font-size: 22px;
 }
 
-.rights{
-    font-size: 16px;
+.rights {
+  font-size: 16px;
 }
 
-.author{
-    text-decoration: none;
-    color: var(--accent);
-    cursor: pointer;
+.author {
+  text-decoration: none;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    height: fit-content;
+    text-align: center;
+  }
+
+  .rights {
+  font-size: 14px;
+}
 }
