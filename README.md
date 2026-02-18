@@ -1,8 +1,4 @@
-Perfect! Based on your **Notes App React project**, here’s a clean, GitHub-ready README that’s tailored to it using the template style you liked:
-
----
-
-# Notes App
+# Notes App React Abdul Hannan CC
 
 A simple and interactive **Notes App** built with React, allowing users to add, view, and delete notes. Notes are stored in the browser's local storage for persistence.
 
@@ -67,13 +63,13 @@ src/
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/notes-app.git
+git clone https://github.com/Ab-dul-Hannan/Notes-App-React-AbdulHannan-CC.git
 ```
 
 2. Navigate to the project directory:
 
 ```bash
-cd notes-app
+cd Notes-App-React-AbdulHannan-CC
 ```
 
 3. Install dependencies:
