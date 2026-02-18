@@ -1,0 +1,21 @@
+.header{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title{
+    font-size: 22px;
+}
+
+.rights{
+    font-size: 16px;
+}
+
+.author{
+    text-decoration: none;
+    color: var(--accent);
+    cursor: pointer;
+}
