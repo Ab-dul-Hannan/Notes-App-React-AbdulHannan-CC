@@ -22,7 +22,7 @@ A React application featuring:
 * Notes stored locally in browser storage
 * Clean and simple user interface
 
-*(Live Demo: )*
+*(Live Demo: https://notes-app-react-abdul-hannan-cc.vercel.app/)*
 
 ---
 
