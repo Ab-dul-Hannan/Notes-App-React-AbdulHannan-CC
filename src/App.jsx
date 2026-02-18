@@ -6,16 +6,28 @@ function App() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  const HandleFORM = (e) => {
+  const [notes, setNotes] = useState([])
+
+  const HandleFrom = (e) => {
     e.preventDefault();
     console.log("Form Submitted");
     console.log(title, description);
+    const newNotes = [...notes, { title, description }];
+    setNotes(newNotes);
+    setTitle("");
+    setDescription("");
+    console.log(newNotes);
+  }
+
+  const delNote = (index) => {
+    const newNotes = notes.filter((noteArray, i) => i !== index);
+    setNotes(newNotes);
   }
 
   return (<>
     <Header />
 
-    <form className='notesForm' onSubmit={HandleFORM}>
+    <form className='notesForm' onSubmit={HandleFrom}>
       <input type="text" className='title' placeholder='Add Note Title'
         value={title} onChange={(e) => setTitle(e.target.value)} />
       <input type="text" className='description' placeholder='Add Note Description'
@@ -23,46 +35,14 @@ function App() {
       <button className='addNote'>Add Note</button>
     </form>
     <div className='notesBox'>
-      <div className="note">
-        <h3 className='noteTitle'>Note Title</h3>
-        <p className='noteDescription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi repellat perspiciatis ea nesciunt earum. Pariatur voluptatibus illo tempore. Ab totam eum inventore aut ex suscipit ut hic eos aperiam tempore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab recusandae repellendus nobis possimus nisi, provident a cupiditate labore quidem nihil hic ullam, totam reprehenderit, commodi sit! Debitis cum et assumenda.</p>
-        <button className='deleteNote'>Delete Note</button>
-      </div>
-      <div className="note">
-        <h3 className='noteTitle'>Note Title</h3>
-        <p className='noteDescription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi repellat perspiciatis ea nesciunt earum. Pariatur voluptatibus illo tempore. Ab totam eum inventore aut ex suscipit ut hic eos aperiam tempore.</p>
-        <button className='deleteNote'>Delete Note</button>
-      </div>
-      <div className="note">
-        <h3 className='noteTitle'>Note Title</h3>
-        <p className='noteDescription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi repellat perspiciatis ea nesciunt earum. Pariatur voluptatibus illo tempore. Ab totam eum inventore aut ex suscipit ut hic eos aperiam tempore.</p>
-        <button className='deleteNote'>Delete Note</button>
-      </div>
-      <div className="note">
-        <h3 className='noteTitle'>Note Title</h3>
-        <p className='noteDescription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi repellat perspiciatis ea nesciunt earum. Pariatur voluptatibus illo tempore. Ab totam eum inventore aut ex suscipit ut hic eos aperiam tempore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum sunt sit maxime aliquam et odit natus modi, tenetur rerum dicta corporis nisi labore voluptatem voluptates harum. Eaque explicabo illo reprehenderit?</p>
-        <button className='deleteNote'>Delete Note</button>
-      </div>
-      <div className="note">
-        <h3 className='noteTitle'>Note Title</h3>
-        <p className='noteDescription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi repellat perspiciatis ea nesciunt earum. Pariatur voluptatibus illo tempore. Ab totam eum inventore aut ex suscipit ut hic eos aperiam tempore.</p>
-        <button className='deleteNote'>Delete Note</button>
-      </div>
-      <div className="note">
-        <h3 className='noteTitle'>Note Title</h3>
-        <p className='noteDescription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi repellat perspiciatis ea nesciunt earum. Pariatur voluptatibus illo tempore. Ab totam eum inventore aut ex suscipit ut hic eos aperiam tempore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Error deserunt, sequi maxime sed enim accusantium voluptate ea asperiores pariatur a aperiam corrupti magni aut! Illum soluta quisquam neque molestiae consequuntur!</p>
-        <button className='deleteNote'>Delete Note</button>
-      </div>
-      <div className="note">
-        <h3 className='noteTitle'>Note Title</h3>
-        <p className='noteDescription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi repellat perspiciatis ea nesciunt earum. Pariatur voluptatibus illo tempore. Ab totam eum inventore aut ex suscipit ut hic eos aperiam tempore.</p>
-        <button className='deleteNote'>Delete Note</button>
-      </div>
-      <div className="note">
-        <h3 className='noteTitle'>Note Title</h3>
-        <p className='noteDescription'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi repellat perspiciatis ea nesciunt earum. Pariatur voluptatibus illo tempore. Ab totam eum inventore aut ex suscipit ut hic eos aperiam tempore.</p>
-        <button className='deleteNote'>Delete Note</button>
-      </div>
+      {notes.map((note, index) => (
+        <div className="note" key={index}>
+          <h3 className='noteTitle'>{note.title}</h3>
+          <p className='noteDescription'>{note.description}</p>
+          <button className='deleteNote' onClick={() => delNote(index)}>Delete Note</button>
+        </div>
+       )
+      )}
     </div>
   </>
   )
