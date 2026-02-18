@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './components/header.jsx'
 
 function App() {
+
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
+  const HandleFORM = (e) => {
+    e.preventDefault();
+    console.log("Form Submitted");
+    console.log(title, description);
+  }
+
   return (<>
     <Header />
 
-    <form className='notesForm'>
-      <input type="text" className='title' placeholder='Add Note Title'/>
-      <input type="text" className='description' placeholder='Add Note Description'/>
+    <form className='notesForm' onSubmit={HandleFORM}>
+      <input type="text" className='title' placeholder='Add Note Title'
+        value={title} onChange={(e) => setTitle(e.target.value)} />
+      <input type="text" className='description' placeholder='Add Note Description'
+        value={description} onChange={(e) => setDescription(e.target.value)} />
       <button className='addNote'>Add Note</button>
     </form>
     <div className='notesBox'>
