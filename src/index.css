@@ -7,7 +7,11 @@
 :root {
   --main-bg: #F4F8FF;
   --second-bg: #DCEBFF;
-  --accent: #3A7BFF;
+  --accent: #3a7bff;
+}
+
+input::placeholder {
+  color: #a8a8a8;
 }
 
 body{
@@ -26,4 +30,140 @@ body{
   width: 100%;
   max-width: 1600px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.notesForm{
+  width: 100%;
+  height: max-content;
+  background-color: var(--second-bg);
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.notesForm input{
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  background-color: var(--main-bg);
+  font-size: 14px;
+  width: 80%;
+  border-radius: 8px;
+  border: 2px solid var(--second-bg);
+}
+
+.notesForm input:focus{
+  border: 2px solid var(--accent);
+}
+
+.notesForm .title{
+  width: 30%;
+}
+
+.notesForm .description{
+  width: 60%;
+}
+
+.notesForm button{
+  background-color: var(--accent);
+  color: var(--second-bg);
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  padding: 10px 0px;
+  cursor: pointer;
+}
+
+.notesForm .addNote{
+  width: 10%;
+  transition: all 0.3s ease;
+}
+
+.notesForm .addNote:hover{
+  opacity: 0.85;
+}
+
+.notesBox {
+  background-color: var(--second-bg);
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  overflow-y: scroll;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.notesBox::-webkit-scrollbar {
+  display: none;
+}
+
+.note {
+  background-color: var(--main-bg);
+  flex: 1 1 auto;
+  width: 365px; 
+  height: 250px;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 4px 10px rgba(58, 123, 255, 0.08);
+}
+
+.noteTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.noteDescription {
+  flex: 1;
+  overflow-y: auto;
+  font-size: 12px;
+  line-height: 1.5;
+  padding-right: 5px;
+}
+
+.deleteNote {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.deleteNote:hover {
+  opacity: 0.85;
+}
+
+.noteDescription::-webkit-scrollbar {
+  width: 4px;
+}
+
+.noteDescription::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.noteDescription::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  border-radius: 10px;
+}
+
+.noteDescription {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
 }
