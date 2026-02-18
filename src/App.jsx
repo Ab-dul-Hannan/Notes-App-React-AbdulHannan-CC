@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from './components/header.jsx'
 
 function App() {
@@ -6,18 +6,22 @@ function App() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  const [notes, setNotes] = useState([])
+  const [notes, setNotes] = useState( () => {
+    const savedNotes = localStorage.getItem("notes");
+    return savedNotes ? JSON.parse(savedNotes) : [];
+  });
 
   const HandleFrom = (e) => {
     e.preventDefault();
-    console.log("Form Submitted");
-    console.log(title, description);
     const newNotes = [...notes, { title, description }];
     setNotes(newNotes);
     setTitle("");
     setDescription("");
-    console.log(newNotes);
   }
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
 
   const delNote = (index) => {
     const newNotes = notes.filter((noteArray, i) => i !== index);
